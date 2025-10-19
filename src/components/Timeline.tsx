@@ -158,25 +158,21 @@ const Timeline = () => {
                       </div>
 
                       {/* Achievements */}
-                      <ul className={`space-y-2 ${isEven ? 'md:text-right' : 'md:text-left'}`}>
+                      <ul className={`space-y-2 ${isEven ? 'md:items-end' : 'md:items-start'} flex flex-col`}>
                         {exp.achievements.map((achievement, i) => (
                           <li
                             key={i}
-                            className="text-sm text-muted-foreground flex items-start gap-2 hover:text-foreground transition-colors"
-                            style={{
-                              flexDirection: isEven ? 'row-reverse' : 'row',
-                              justifyContent: isEven ? 'flex-end' : 'flex-start'
-                            }}
+                            className={`text-sm text-muted-foreground flex items-start gap-2 transition-colors hover:text-foreground ${isEven ? 'flex-row-reverse text-right' : ''}`}
                           >
                             <span className="text-secondary mt-1 animate-pulse-slow">▸</span>
                             <span>{achievement}</span>
                           </li>
                         ))}
                       </ul>
+
                     </div>
                   </div>
 
-                  {/* Timeline marker with enhanced animation */}
                   {/* Timeline marker with enhanced animation */}
                   <div className="relative flex justify-center md:justify-center">
                     <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary p-1 group hover:scale-110 hover:rotate-12 transition-all duration-300 zen-circle">

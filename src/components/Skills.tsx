@@ -129,10 +129,10 @@ const Skills = () => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mt-20 max-w-4xl mx-auto">
           {[
-            { value: "20+", label: "Technologies maîtrisées" },
-            { value: "5+", label: "Années d'expérience" },
-            { value: "10+", label: "Projets réalisés" },
-            { value: "3", label: "Langues parlées" }
+            { value: "50+", label: "Technologies maîtrisées" },
+            { value: "2+", label: "Années d'expérience" },
+            { value: "30+", label: "Projets réalisés" },
+            { value: "4", label: "Langues parlées" }
           ].map((stat, index) => (
             <div
               key={stat.label}

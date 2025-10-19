@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { ExternalLink, Github } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { ChevronDown, ChevronUp, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const projects = [
@@ -57,7 +57,7 @@ const projects = [
     description: "Plateforme de diffusion et partage de contenus multimédias pour les équipes internes. Gestion des droits et workflows optimisés pour 200+ collaborateurs.",
     technologies: ["React.js", "JavaScript", "Electron", "Node.js", "Express.js", "Sequelize", "Fastify", "Docker", "Jenkins", "Authentication", "Access Control", "Atlassian", "Scrum", "Git", "CI/CD", "REST API"],
     impact: "200+ collaborateurs",
-    gradient: "from-accent-dark to-primary"
+    gradient: "from-primary to-secondary"
   },
   {
     title: "Acensigne",
@@ -65,38 +65,71 @@ const projects = [
     description: "Outil interne de signature électronique sécurisée avec cryptographie avancée. Interface intuitive et workflow optimisé pour les processus métier.",
     technologies: ["React.js", "Node.js", "NestJS", "Jira API", "Azure", "Atlassian", "Workflow Management", "Scrum", "Cypress", "Jest", "Docker", "Git", "CI/CD", "REST API"],
     impact: "Déployé en production",
-    gradient: "from-primary-dark to-secondary"
+    gradient: "from-primary to-secondary"
   },
+  {
+    title: "VR Baseball",
+    category: "Projet académique - VR",
+    description: "Jeu de baseball immersif en réalité virtuelle avec Unity et C#. Gameplay multijoueur avec mécaniques réalistes et environnements 3D interactifs.",
+    technologies: ["Unity", "C#", "VR Development", "3D Modeling", "Multiplayer", "Game Design"],
+    impact: "Expérience VR interactive enrichie",
+    gradient: "from-primary to-secondary"
+  },
+  {
+    title: "R-Type",
+    category: "Projet académique - C++",
+    description: "Version multijoueur en réseau du jeu R-Type, développée avec un moteur de jeu en C++ modulaire et un protocole UDP optimisé.",
+    technologies: ["Gestion de projet", "C++", "UDP", "Multithreading", "Game Engine", "Network Programming"],
+    impact: "Jeu fluide et synchronisé en multijoueur",
+    gradient: "from-primary to-secondary"
+  }
 ];
+
+const MAX_PROJECTS = 6;
+const MAX_TECHS = 8;
 
 const Projects = () => {
   const sectionRef = useRef<HTMLElement>(null);
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const [expandedTechs, setExpandedTechs] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('active');
+            entry.target.classList.add("active");
           }
         });
       },
       { threshold: 0.1 }
     );
 
-    const elements = sectionRef.current?.querySelectorAll('.scroll-reveal');
+    const elements = sectionRef.current?.querySelectorAll(".scroll-reveal");
     elements?.forEach((el) => observer.observe(el));
 
     return () => observer.disconnect();
-  }, []);
+  }, [showAllProjects]); // 👈 ajout de showAllProjects comme dépendance
+
+
+  const toggleTechs = (title: string) => {
+    setExpandedTechs((prev) => ({ ...prev, [title]: !prev[title] }));
+  };
 
   return (
-    <section id="projects" ref={sectionRef} className="py-24 relative overflow-hidden pattern-circles">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="py-24 relative overflow-hidden pattern-circles"
+    >
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
 
       {/* Decorative zen elements */}
       <div className="absolute top-20 left-1/4 w-32 h-32 rounded-full border-2 border-primary/20 animate-rotate-slow" />
-      <div className="absolute bottom-40 right-1/4 w-48 h-48 rounded-full border border-secondary/10 animate-rotate-slow" style={{ animationDirection: 'reverse', animationDuration: '25s' }} />
+      <div
+        className="absolute bottom-40 right-1/4 w-48 h-48 rounded-full border border-secondary/10 animate-rotate-slow"
+        style={{ animationDirection: "reverse", animationDuration: "25s" }}
+      />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 scroll-reveal">
@@ -104,61 +137,102 @@ const Projects = () => {
             <span className="text-gradient">已完成的项目 — Projets Réalisés</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Des solutions innovantes pour des clients prestigieux et des projets d'envergure
+            Des solutions innovantes pour des clients prestigieux et des projets
+            d'envergure
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {projects.map((project, index) => (
-            <div
-              key={project.title}
-              className="scroll-reveal glass-card rounded-2xl overflow-hidden hover-glow group transition-all duration-500 hover:scale-105 hover:-translate-y-2"
-            >
-              {/* Gradient header with animation */}
-              <div className={`h-2 bg-gradient-to-r ${project.gradient} group-hover:h-3 transition-all duration-300`} />
+        <div
+          className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto transition-all duration-500"
+        >
+          {(showAllProjects ? projects : projects.slice(0, MAX_PROJECTS)).map(
+            (project) => (
+              <div
+                key={project.title}
+                className="scroll-reveal glass-card rounded-2xl overflow-hidden hover-glow group transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+              >
+                {/* Gradient header with animation */}
+                <div
+                  className={`h-2 bg-gradient-to-r ${project.gradient} group-hover:h-3 transition-all duration-300`}
+                />
 
-              <div className="p-6">
-                {/* Category badge */}
-                <div className="inline-block px-3 py-1 bg-muted/50 rounded-full text-xs text-secondary mb-4 group-hover:bg-secondary/20 group-hover:text-secondary transition-all duration-300 border border-secondary/20">
-                  {project.category}
-                </div>
+                <div className="p-6">
+                  {/* Category badge */}
+                  <div className="inline-block px-3 py-1 bg-muted/50 rounded-full text-xs text-secondary mb-4 group-hover:bg-secondary/20 group-hover:text-secondary transition-all duration-300 border border-secondary/20">
+                    {project.category}
+                  </div>
 
-                {/* Title */}
-                <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors font-noto-jp">
-                  {project.title}
-                </h3>
+                  {/* Title */}
+                  <h3 className="text-2xl font-bold mb-3 group-hover:text-primary transition-colors font-noto-jp">
+                    {project.title}
+                  </h3>
 
-                {/* Description */}
-                <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                  {project.description}
-                </p>
+                  {/* Description */}
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+                    {project.description}
+                  </p>
 
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, idx) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-primary/10 text-xs rounded border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 cursor-default wave-animation"
-                      style={{ animationDelay: `${idx * 0.1}s` }}
+                  {/* Technologies */}
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {(expandedTechs[project.title]
+                      ? project.technologies
+                      : project.technologies.slice(0, MAX_TECHS)
+                    ).map((tech, idx) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 bg-primary/10 text-xs rounded border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 cursor-default wave-animation"
+                        style={{ animationDelay: `${idx * 0.1}s` }}
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  {project.technologies.length > MAX_TECHS && (
+                    <button
+                      onClick={() => toggleTechs(project.title)}
+                      className="flex items-center text-xs text-primary hover:underline"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
+                      {expandedTechs[project.title] ? (
+                        <>
+                          Voir moins <ChevronUp className="ml-1 h-3 w-3" />
+                        </>
+                      ) : (
+                        <>
+                          Voir plus <ChevronDown className="ml-1 h-3 w-3" />
+                        </>
+                      )}
+                    </button>
+                  )}
 
-                {/* Impact */}
-                <div className="flex items-center justify-between pt-4 border-t border-border/50">
-                  <span className="text-sm font-semibold text-secondary group-hover:scale-105 transition-transform duration-300">
-                    {project.impact}
-                  </span>
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <ExternalLink className="h-4 w-4 text-primary animate-bounce-slow" />
+                  {/* Impact */}
+                  <div className="flex items-center justify-between pt-4 border-t border-border/50">
+                    <span className="text-sm font-semibold text-secondary group-hover:scale-105 transition-transform duration-300">
+                      {project.impact}
+                    </span>
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                      <ExternalLink className="h-4 w-4 text-primary animate-bounce-slow" />
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          )}
         </div>
+
+        {/* Voir plus/moins projets */}
+        {projects.length > MAX_PROJECTS && (
+          <div className="text-center mt-12">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => setShowAllProjects((prev) => !prev)}
+              className="border-primary/50 hover:bg-primary/10 hover:border-primary"
+            >
+              {showAllProjects ? "Voir moins de projets" : "Voir plus de projets"}
+            </Button>
+          </div>
+        )}
 
         {/* GitHub CTA */}
         <div className="text-center mt-16 scroll-reveal">

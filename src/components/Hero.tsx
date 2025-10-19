@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
-import { ArrowDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowDown, Check, Github, Linkedin, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const Hero = () => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [copied, setCopied] = useState(false);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -135,12 +136,29 @@ const Hero = () => {
             >
               <Github className="h-5 w-5 text-primary group-hover:text-secondary transition-colors" />
             </a>
-            <a
-              href="mailto:martin.leblancs@epitech.eu"
-              className="p-3 glass-card rounded-full hover-glow hover:scale-110 transition-all duration-300 group"
-            >
-              <Mail className="h-5 w-5 text-primary group-hover:text-secondary transition-colors" />
-            </a>
+            <div className="relative flex flex-col items-center">
+              <a
+                onClick={() => {
+                  navigator.clipboard.writeText("martin.leblancs@epitech.eu");
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 2000);
+                }}
+                className="p-3 glass-card rounded-full hover-glow hover:scale-110 transition-all duration-300 group cursor-pointer flex items-center justify-center"
+              >
+                {copied ? (
+                  <Check className="h-5 w-5 text-secondary transition-all" />
+                ) : (
+                  <Mail className="h-5 w-5 text-primary group-hover:text-secondary transition-colors" />
+                )}
+              </a>
+
+              {/* Texte de feedback absolument positionné */}
+              {copied && (
+                <span className="absolute top-full mt-1 text-xs text-green-500 animate-fade-in">
+                  Mail copié !
+                </span>
+              )}
+            </div>
           </div>
         </div>
       </div>

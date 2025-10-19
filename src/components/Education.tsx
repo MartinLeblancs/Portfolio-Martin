@@ -67,7 +67,7 @@ const Education = () => {
             <div className="max-w-6xl mx-auto">
                 <h2 className="text-5xl md:text-6xl font-black text-center mb-16">
                     <span className="bg-gradient-accent bg-clip-text text-transparent">
-                        Formation
+                        教育经历 — Formations
                     </span>
                 </h2>
 

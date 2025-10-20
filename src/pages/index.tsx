@@ -8,24 +8,34 @@ import Education from "@/components/Education";
 
 const HomePage = () => {
   return (
-    <div className="min-h-screen">
-      <Hero />
-      <Skills />
-      <Timeline />
-      <Projects />
-      <Education />
-      <Contact />
+    <>
+      <Head>
+        <title>Martin LEBLANCS</title>
+        <meta
+          name="description"
+          content="Portfolio de Martin LEBLANCS – développeur web passionné par l’innovation et la créativité."
+        />
+      </Head>
 
-      {/* Footer */}
-      <AudioButton />
-      <footer className="py-8 border-t border-border/50">
-        <div className="container mx-auto px-6 text-center">
-          <p className="text-muted-foreground text-sm">
-            © 2025 Martin LEBLANCS. Conçu avec passion et innovation.
-          </p>
-        </div>
-      </footer>
-    </div>
+      <div className="min-h-screen">
+        <Hero />
+        <Skills />
+        <Timeline />
+        <Projects />
+        <Education />
+        <Contact />
+
+        {/* Footer */}
+        <AudioButton />
+        <footer className="py-8 border-t border-border/50">
+          <div className="container mx-auto px-6 text-center">
+            <p className="text-muted-foreground text-sm">
+              © 2025 Martin LEBLANCS. Conçu avec passion et innovation.
+            </p>
+          </div>
+        </footer>
+      </div>
+    </>
   );
 };
 

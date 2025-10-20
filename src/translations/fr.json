@@ -1,0 +1,326 @@
+{
+  "entrance": {
+  "welcome": "Bienvenue",
+  "portfolio": "Portfolio de Martin Leblancs"
+  },
+  "hero": {
+    "greeting": "你好，我是 — Bonjour, je suis",
+    "name": "Martin LEBLANCS",
+    "subtitle": "Ingénieur Informatique Fullstack",
+    "specialties": ["Web & Mobile", "Data & IA", "Cybersécurité", "Cloud"],
+    "description": "Passionné par l'innovation technologique, je transforme des idées en solutions digitales performantes et créatives. Du frontend au backend, de l'IA à la cybersécurité.",
+    "projectsButton": "Découvrir mes projets",
+    "contactButton": "Me contacter",
+    "socialCopied": "Mail copié !"
+  },
+  "footer": {
+    "text": "© 2025 Martin LEBLANCS - Conçu avec passion et innovation."
+  },
+  "skills": {
+    "title": "技术专长 — Expertises Techniques",
+    "subtitle": "Une palette complète de compétences pour transformer vos idées en réalité digitale",
+    "categories": {
+      "fullstack": {
+        "title": "Développement Fullstack",
+        "description": "Création d'applications web et mobile performantes"
+      },
+      "mobile": {
+        "title": "Mobile & Cross-platform",
+        "description": "Applications natives et hybrides iOS/Android"
+      },
+      "ia": {
+        "title": "IA & Data Science",
+        "description": "Intelligence artificielle et traitement de données"
+      },
+      "cybersecurity": {
+        "title": "Cybersécurité",
+        "description": "Sécurité applicative et infrastructure"
+      },
+      "cloud": {
+        "title": "Cloud & DevOps",
+        "description": "Infrastructure moderne et automatisation"
+      },
+      "database": {
+        "title": "Bases de données",
+        "description": "Conception et optimisation de données"
+      }
+    },
+    "stats": {
+      "technologies": "Technologies maîtrisées",
+      "experience": "Années d'expérience",
+      "projects": "Projets réalisés",
+      "languages": "Langues parlées"
+    }
+  },
+  "timeline": {
+    "title": "我的经历 — Mon Parcours",
+    "subtitle": "Une trajectoire marquée par l'innovation et l'excellence technique",
+    "acensi": {
+      "title": "Ingénieur Développeur Fullstack",
+      "company": "ACENSI",
+      "location": "Paris, France",
+      "period": "Oct 2024 - Oct 2025",
+      "description": "Conseil en technologies & transformation digitale pour clients grands comptes",
+      "achievements": [
+        { "text": "Déploiement du projet SFR Étiquette unifiée pour centraliser et harmoniser les labels" },
+        { "text": "Développement d'Acensigne, outil interne de signature électronique sécurisée" },
+        { "text": "Acenstream : plateforme interne de diffusion et partage de contenus" },
+        { "text": "Mise en place de tests unitaires et d’intégration (Jest, Cypress) et automatisation du déploiement via Jenkins/Docker" }
+      ]
+    },
+    "amundi": {
+      "title": "Développeur Fullstack & Data",
+      "company": "AMUNDI",
+      "location": "Paris, France",
+      "period": "Jan 2023 - Août 2023",
+      "description": "Leader européen de la gestion d'actifs, filiale Crédit Agricole",
+      "achievements": [
+        { "text": "Automatisation via Python et intégration d'IA pour la recherche documentaire et génération d'analyses" },
+        { "text": "Maintenance et optimisation des plateformes d’analyse financière et ESG" },
+        { "text": "Développement d'Alto Studio, outil interne pour exploiter et visualiser les données ESG" },
+        { "text": "Création d'un site web pour recenser et analyser l’impact climatique des entreprises" },
+        { "text": "Optimisation d’un outil de reporting réduisant de 30% le temps de génération des rapports" }
+      ]
+    },
+    "schoolab": {
+      "title": "Chef de Projet - SchooLab / Crédit Agricole",
+      "company": "Crédit Agricole / SchooLab",
+      "location": "Paris, France",
+      "period": "2022 - 2023",
+      "description": "Projet d'innovation technologique et attractivité jeunes talents",
+      "achievements": [
+        { "text": "Lauréat du projet SchooLab d’innovation technologique et IA" },
+        { "text": "Mise en œuvre de solutions IT pour attirer les jeunes talents" },
+        { "text": "Présentation des prototypes lors d’un Demo Day organisé par SchooLab" }
+      ]
+    },
+    "sony": {
+      "title": "Chef de Projets Innovants",
+      "company": "Sony CSL & Crédit Agricole / SchooLab",
+      "location": "Paris, France",
+      "period": "2022 - 2023",
+      "description": "Projet SchooLab d'innovation technologique",
+      "achievements": [
+        { "text": "Développement d'une application web collaborative exploitant un modèle IA générative pour la création musicale interactive", "link": "https://pianoto.cslmusic.team" },
+        { "text": "Conception du front-end React et intégration API IA (Python / TensorFlow)" },
+        { "text": "Collaboration avec des ingénieurs R&D de Sony Computer Science Laboratories" },
+        { "text": "Collaboration avec Crédit Agricole & SchooLab sur l’attractivité des jeunes talents de la tech" },
+        { "text": "Présentation des prototypes lors d’un Demo Day SchooLab" }
+      ]
+    },
+    "stayalive": {
+      "title": "StayAlive",
+      "company": "EPITECH Innovative Project",
+      "location": "Paris, France",
+      "period": "Sept 2023 - Févr 2025",
+      "description": "Application mobile d'urgence médicale permettant à une communauté vérifiée de secouristes d'intervenir rapidement",
+      "achievements": [
+        { "text": "Développement complet de l’application mobile (React Native) et backend (Node.js)" },
+        { "text": "Pilotage du projet et coordination d'une équipe pour 100+ utilisateurs" },
+        { "text": "Implémentation de fonctionnalités : disponibilité utilisateur, alertes urgences, géolocalisation, documents, signalement de bugs" },
+        { "text": "Mise en place de tests unitaires et optimisation de la performance" }
+      ]
+    },
+    "epitech": {
+      "title": "EPITECH Paris",
+      "company": "Master 2 - Expert en technologies de l'information",
+      "location": "Paris, France",
+      "period": "2020 - 2025",
+      "description": "Diplôme visé par le ministère de l’Enseignement Supérieur",
+      "achievements": [
+        { "text": "Expert en ingénierie logicielle" },
+        { "text": "Projet innovant StayAlive (application mobile d'urgence, 100+ utilisateurs)" },
+        { "text": "Spécialisations multiples : Fullstack, IA, Cybersécurité" }
+      ]
+    },
+    "beijing": {
+      "title": "Beijing Jiaotong University",
+      "company": "Échange universitaire",
+      "location": "Pékin, Chine",
+      "period": "2023 - 2024",
+      "description": "Master 1 - Expérience internationale",
+      "achievements": [
+        { "text": "Immersion culturelle et académique" },
+        { "text": "Apprentissage du Mandarin (HSK 3)" },
+        { "text": "Collaboration multiculturelle" }
+      ]
+    },
+    "viewProject": "Voir le projet",
+    "showAll": "Voir toute la timeline",
+    "showLess": "Voir moins"
+  },
+  "projects": {
+  "title": "已完成的项目 — Projets Réalisés",
+  "subtitle": "Des solutions innovantes pour des clients prestigieux et des projets d'envergure",
+  "seeMore": "Voir plus",
+  "seeLess": "Voir moins",
+  "viewProject": "Voir le projet",
+  "seeAllOnGitHub": "Voir tous mes projets",
+  "githubCTA": "Découvrez plus de projets sur mon GitHub",
+  "items": {
+    "sfr": {
+      "title": "SFR Étiquette Unifiée",
+      "category": "Système Enterprise",
+      "description": "Centralisation et harmonisation des labels produits SFR pour améliorer la cohérence des données. Mise en place de tests unitaires et intégration continue avec Jenkins/Docker.",
+      "technologies": ["React.js", "JavaScript", "Node.js", "Jest", "Cypress", "Redux", "PostgreSQL", "Docker", "CI/CD", "Jenkins", "Atlassian", "Scrum", "Git", "REST API"],
+      "impact": "Déploiement national et meilleure fiabilité des données",
+      "gradient": "from-accent to-primary"
+    },
+    "esg": {
+      "title": "Site ESG Climate",
+      "category": "Data & Analytics - Amundi",
+      "description": "Développement complet d’un site web affichant l’impact climatique des entreprises. Back-end pour collecter et traiter les données via web scraping et front-end pour visualisation interactive.",
+      "technologies": ["React.js", "JavaScript", "Python", "Django", "Data Scraping", "REST API", "PostgreSQL", "Charts.js", "Atlassian", "Scrum", "Docker", "Git", "CI/CD"],
+      "impact": "Visualisation claire de l’impact climatique pour 50+ entreprises",
+      "gradient": "from-secondary to-accent"
+    },
+    "superset": {
+      "title": "Intégration Superset",
+      "category": "Data & Analytics - Amundi",
+      "description": "Intégration de Superset pour permettre la visualisation et l’analyse des données internes. Automatisation et optimisation des dashboards pour réduire le temps de génération des rapports.",
+      "technologies": ["Python", "Superset", "SQL", "TypeScript", "Data Analysis", "Automation", "Atlassian", "Scrum", "Docker", "CI/CD", "Git", "REST API"],
+      "impact": "-30% temps de génération des rapports",
+      "gradient": "from-secondary to-secondary-glow"
+    },
+    "alto": {
+      "title": "Alto Studio",
+      "category": "Plateforme Interne - Amundi",
+      "description": "Développement et optimisation d’une plateforme interne regroupant divers outils pour les employés : visualisation de données, analyses data, notebooks Jupyter, VS Code en ligne, intégration de ChatGPT et pipelines de données.",
+      "technologies": ["React.js", "JavaScript", "Node.js", "Python", "S3", "JupyterHub", "Trino", "DeltaLake", "Spark", "Kafka", "Dagster", "Data Analysis", "Internal Tools", "Docker", "CI/CD", "Git", "Atlassian", "Scrum"],
+      "impact": "Facilitation de l’exploitation des données pour les équipes internes",
+      "gradient": "from-primary to-primary-dark"
+    },
+    "ia": {
+      "title": "IA Générative Musicale",
+      "category": "Innovation Sony CSL",
+      "description": "Développement d’une web app collaborative exploitant un modèle IA génératif pour la création musicale interactive. Collaboration avec les équipes R&D sur les algorithmes de génération et mixage audio.",
+      "technologies": ["React.js", "Python", "TensorFlow", "PyTorch", "Audio API", "Data Processing", "Atlassian", "Scrum", "Docker", "Git", "CI/CD", "Node.js", "REST API"],
+      "impact": "Projet lauréat SchooLab",
+      "gradient": "from-secondary to-secondary-glow"
+    },
+    "stayalive": {
+      "title": "StayAlive",
+      "category": "Application Mobile d'Urgence",
+      "description": "Application mobile Android/iOS de gestion des urgences médicales avec géolocalisation et alertes en temps réel. Centralisation et traitement des données utilisateurs santé pour priorisation des interventions.",
+      "technologies": ["React Native", "Next.js", "Node.js", "NestJS", "MongoDB", "GitHub Actions", "Maps API", "Real-time", "Firebase", "Geolocation", "Scrum", "Docker", "CI/CD", "Atlassian", "REST API"],
+      "impact": "100+ utilisateurs actifs",
+      "gradient": "from-primary to-primary-dark"
+    },
+    "acenstream": {
+      "title": "Acenstream",
+      "category": "Plateforme Interne ACENSI",
+      "description": "Plateforme de diffusion et partage de contenus multimédias pour les équipes internes. Gestion des droits et workflows optimisés pour 200+ collaborateurs.",
+      "technologies": ["React.js", "JavaScript", "Electron", "Node.js", "Express.js", "Sequelize", "Fastify", "Docker", "Jenkins", "Authentication", "Access Control", "Atlassian", "Scrum", "Git", "CI/CD", "REST API"],
+      "impact": "200+ collaborateurs",
+      "gradient": "from-primary to-secondary"
+    },
+    "acensigne": {
+      "title": "Acensigne",
+      "category": "Signature Électronique",
+      "description": "Outil interne de signature électronique sécurisée avec cryptographie avancée. Interface intuitive et workflow optimisé pour les processus métier.",
+      "technologies": ["React.js", "Node.js", "NestJS", "Jira API", "Azure", "Atlassian", "Workflow Management", "Scrum", "Cypress", "Jest", "Docker", "Git", "CI/CD", "REST API"],
+      "impact": "Déployé en production",
+      "gradient": "from-primary to-secondary"
+    },
+    "vrbaseball": {
+      "title": "VR Baseball",
+      "category": "Projet académique - VR",
+      "description": "Jeu de baseball immersif en réalité virtuelle avec Unity et C#. Gameplay multijoueur avec mécaniques réalistes et environnements 3D interactifs.",
+      "technologies": ["Unity", "C#", "VR Development", "3D Modeling", "Multiplayer", "Game Design"],
+      "impact": "Expérience VR interactive enrichie",
+      "gradient": "from-primary to-secondary"
+    },
+    "rtype": {
+      "title": "R-Type",
+      "category": "Projet académique - C++",
+      "description": "Version multijoueur en réseau du jeu R-Type, développée avec un moteur de jeu en C++ modulaire et un protocole UDP optimisé.",
+      "technologies": ["Gestion de projet", "C++", "UDP", "Multithreading", "Game Engine", "Network Programming"],
+      "impact": "Jeu fluide et synchronisé en multijoueur",
+      "gradient": "from-primary to-secondary"
+      }
+    }
+  },
+  "education": {
+    "title": "教育经历 — Formations",
+    "educationTitle": "Diplômes",
+    "languagesTitle": "Langues",
+    "specializationsTitle": "Spécialisations",
+    "education": {
+      "epitech": {
+        "school": "EPITECH Paris",
+        "degree": "Expert en Technologies de l'Information (Master 2)",
+        "period": "2020 – 2025",
+        "location": "Paris, France",
+        "description": "Diplôme visé par le ministère de l'Enseignement Supérieur et titre d'Expert en ingénierie logicielle"
+      },
+      "beijing": {
+        "school": "Université Beijing Jiaotong",
+        "degree": "Échange Universitaire (Master 1)",
+        "period": "2023 – 2024",
+        "location": "Pékin, Chine",
+        "description": "Échange universitaire d'un an en Chine"
+      },
+      "stjoseph": {
+        "school": "Lycée St Joseph",
+        "degree": "Baccalauréat Scientifique",
+        "period": "2020",
+        "location": "Périgueux, France"
+      }
+    },
+    "languages": {
+      "french": {
+      "name": "Français",
+      "level": "Langue maternelle",
+      "detail": "Langue maternelle"
+    },
+      "english": {
+        "name": "Anglais",
+        "level": "Très bon niveau",
+        "detail": "790/990 TEPITECH"
+      },
+      "mandarin": {
+        "name": "Mandarin",
+        "level": "Niveau basique",
+        "detail": "HSK 3"
+      },
+      "spanish": {
+        "name": "Espagnol",
+        "level": "Intermédiaire"
+      }
+    },
+    "specializations": [
+      { "text": "🔹 Fullstack & Cloud | Mobile (Android/iOS)" },
+      { "text": "🔹 Intelligence Artificielle & Data Engineering / Visualisation" },
+      { "text": "🔹 Cybersécurité & Sécurité applicative | Méthodologie Agile/Scrum" },
+      { "text": "🔹 International & multiculturel | Commercial & Grands comptes" }
+    ]
+  },
+  "contact": {
+    "title": "一起合作 — Travaillons Ensemble",
+    "subtitle": "Un projet en tête ? Une opportunité à discuter ? Je suis toujours ouvert aux nouvelles collaborations",
+    "contactInfo": {
+      "email": "Email",
+      "phone": "Téléphone",
+      "location": "Localisation"
+    },
+    "social": {
+      "linkedin": "LinkedIn",
+      "github": "GitHub"
+    },
+    "form": {
+      "title": "Envoyez-moi un message",
+      "name": "Nom",
+      "email": "Email",
+      "subject": "Sujet",
+      "message": "Message",
+      "namePlaceholder": "Votre nom",
+      "emailPlaceholder": "votre@email.com",
+      "subjectPlaceholder": "Objet de votre message",
+      "messagePlaceholder": "Décrivez votre projet ou votre demande...",
+      "submit": "Envoyer le message",
+      "success": "Message envoyé avec succès !",
+      "error": "Erreur lors de l'envoi : "
+    },
+    "findMeOn": "Retrouvez-moi sur"
+  }
+}

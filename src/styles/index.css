@@ -2,12 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* 🌸 Light Theme (par défaut) */
+:root {
+    /* Base surfaces */
+    --background: 0 0% 98%;
+    --foreground: 0 0% 10%;
 
-@layer base {
-  :root {
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Primary (rouge japonais) */
+    --primary: 4 85% 50%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 4 90% 60%;
+    --primary-dark: 4 70% 40%;
+
+    /* Secondary (or japonais) */
+    --secondary: 38 85% 55%;
+    --secondary-foreground: 0 0% 10%;
+    --secondary-glow: 38 95% 70%;
+
+    /* Accent (beige clair) */
+    --accent: 28 50% 90%;
+    --accent-foreground: 0 0% 10%;
+    --accent-dark: 28 60% 75%;
+
+    /* Texte & éléments secondaires */
+    --muted: 0 0% 92%;
+    --muted-foreground: 0 0% 35%;
+
+    --destructive: 0 84% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 0 0% 85%;
+    --input: 0 0% 85%;
+    --ring: 4 85% 50%;
+
+    --radius: 0.75rem;
+
+    /* 🌅 Gradients harmonieux */
+    --gradient-primary: linear-gradient(135deg, hsl(4 85% 50%), hsl(38 85% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(38 92% 60%), hsl(28 65% 85%));
+    --gradient-glow: linear-gradient(135deg, hsl(4 90% 65% / 0.25), hsl(38 95% 70% / 0.15));
+    --gradient-radial: radial-gradient(circle at center, hsl(4 85% 55% / 0.1), transparent 70%);
+
+    /* 🌟 Soft shadows */
+    --shadow-glow: 0 0 40px hsl(4 85% 55% / 0.25);
+    --shadow-glow-lg: 0 0 80px hsl(4 85% 55% / 0.35);
+    --shadow-accent: 0 0 40px hsl(38 92% 60% / 0.2);
+
+    /* 🎐 Animations */
+    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+    /* 🌸 Torii variables (pour cohérence visuelle) */
+    --torii-background: hsl(0 0% 98%);
+    --torii-foreground: hsl(0 0% 10%);
+    --torii-primary: hsl(4 85% 50%);
+    --torii-secondary: hsl(38 85% 55%);
+    --torii-accent: hsl(28 60% 80%);
+    --torii-glow: hsl(4 85% 55%);
+    --torii-shadow-purple: 0 10px 40px -10px hsl(270 60% 45% / 0.15);
+    --torii-shadow-gold: 0 10px 40px -10px hsl(45 80% 55% / 0.2);
+    --torii-gradient-hero: radial-gradient(circle at center, hsl(4 85% 55% / 0.1), transparent 70%);
+    --torii-gradient-accent: linear-gradient(135deg, hsl(38 92% 60%), hsl(28 65% 85%));
+    --torii-gradient-mesh:
+      radial-gradient(at 0% 0%, hsl(4 85% 55% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, hsl(38 92% 60% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsl(28 65% 85% / 0.08) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(4 85% 55% / 0.08) 0px, transparent 50%);
+  }
+
+  .dark {
     --background: 0 0% 4%;
     --foreground: 30 15% 95%;
 
@@ -60,7 +129,7 @@ All colors MUST be HSL.
 
     /* ToriiEntrance specific variables */
     --torii-background: hsl(0 0% 8%);
-    --torii-foreground: hsl(0 0% 98%);
+    --torii-foreground: hsl(0, 0%, 98%);
     --torii-primary: hsl(0 0% 8%);
     --torii-secondary: hsl(45 80% 55%);
     --torii-accent: hsl(45 80% 55%);
@@ -75,8 +144,8 @@ All colors MUST be HSL.
       radial-gradient(at 100% 100%, hsl(270 60% 20% / 0.3) 0px, transparent 50%),
       radial-gradient(at 0% 100%, hsl(45 70% 40% / 0.2) 0px, transparent 50%);
   }
-}
 
+/* Global base styles */
 @layer base {
   * {
     @apply border-border;

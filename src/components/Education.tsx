@@ -80,11 +80,13 @@ const Education = ({ translations }: EducationProps) => {
               return (
                 <div
                   key={key}
-                  ref={(el) => (itemRefs.current[index] = el)}
+                  ref={(el) => {
+                    itemRefs.current[index] = el;
+                  }}
+
                   data-index={index}
-                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-crimson hover:scale-[1.02] ${
-                    visibleItems.has(index) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-                  }`}
+                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-crimson hover:scale-[1.02] ${visibleItems.has(index) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
+                    }`}
                   style={{ transitionDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start gap-4">
@@ -118,13 +120,13 @@ const Education = ({ translations }: EducationProps) => {
               return (
                 <div
                   key={key}
-                  ref={(el) => (itemRefs.current[educationKeys.length + index] = el)}
-                  data-index={educationKeys.length + index}
-                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-gold hover:scale-[1.02] ${
-                    visibleItems.has(educationKeys.length + index)
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 translate-x-10"
-                  }`}
+                  ref={(el) => {
+                    itemRefs.current[educationKeys.length + index] = el;
+                  }} data-index={educationKeys.length + index}
+                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-gold hover:scale-[1.02] ${visibleItems.has(educationKeys.length + index)
+                    ? "opacity-100 translate-x-0"
+                    : "opacity-0 translate-x-10"
+                    }`}
                   style={{ transitionDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-center justify-between mb-2">

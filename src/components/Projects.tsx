@@ -5,6 +5,7 @@ import { ChevronDown, ChevronUp, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 interface ProjectData {
+  id: string;
   title: string;
   category: string;
   description: string;
@@ -21,7 +22,7 @@ interface ProjectsMessages {
   viewProject: string;
   seeAllOnGitHub: string;
   githubCTA: string;
-  items: { [key: string]: ProjectData };
+  items: ProjectData[];
 }
 
 interface ProjectsProps {
@@ -34,9 +35,7 @@ const MAX_TECHS = 8;
 const Projects = ({ translations }: ProjectsProps) => {
   const sectionRef = useRef<HTMLElement>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
-  const [expandedTechs, setExpandedTechs] = useState<{ [key: string]: boolean }>(
-    {}
-  );
+  const [expandedTechs, setExpandedTechs] = useState<{ [key: string]: boolean }>({});
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -54,18 +53,15 @@ const Projects = ({ translations }: ProjectsProps) => {
     return () => observer.disconnect();
   }, [showAllProjects]);
 
-  const toggleTechs = (title: string) => {
-    setExpandedTechs((prev) => ({ ...prev, [title]: !prev[title] }));
+  const toggleTechs = (id: string) => {
+    setExpandedTechs((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const projectKeys = translations.items ? Object.keys(translations.items) : [];
-  if (projectKeys.length === 0) return null;
+  if (!translations.items || translations.items.length === 0) return null;
 
-  const displayedKeys = showAllProjects
-    ? projectKeys
-    : projectKeys.slice(0, MAX_PROJECTS);
-
-
+  const displayedProjects = showAllProjects
+    ? translations.items
+    : translations.items.slice(0, MAX_PROJECTS);
 
   return (
     <section
@@ -93,13 +89,12 @@ const Projects = ({ translations }: ProjectsProps) => {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto transition-all duration-500">
-          {displayedKeys.map((key) => {
-            const project = translations.items[key];
-            const isTechExpanded = expandedTechs[project.title] || false;
+          {displayedProjects.map((project) => {
+            const isTechExpanded = expandedTechs[project.id] || false;
 
             return (
               <div
-                key={project.title}
+                key={project.id}
                 className="scroll-reveal glass-card rounded-2xl overflow-hidden hover-glow group transition-all duration-500 hover:scale-105 hover:-translate-y-2"
               >
                 {/* Gradient header */}
@@ -138,7 +133,7 @@ const Projects = ({ translations }: ProjectsProps) => {
 
                   {project.technologies.length > MAX_TECHS && (
                     <button
-                      onClick={() => toggleTechs(project.title)}
+                      onClick={() => toggleTechs(project.id)}
                       className="flex items-center text-xs text-primary hover:underline"
                     >
                       {isTechExpanded ? (
@@ -169,7 +164,7 @@ const Projects = ({ translations }: ProjectsProps) => {
         </div>
 
         {/* Toggle projects */}
-        {projectKeys.length > MAX_PROJECTS && (
+        {translations.items.length > MAX_PROJECTS && (
           <div className="text-center mt-12">
             <Button
               variant="outline"

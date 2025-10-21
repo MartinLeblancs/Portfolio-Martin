@@ -217,8 +217,9 @@
     "viewProject": "View project",
     "seeAllOnGitHub": "See all my projects",
     "githubCTA": "Discover more projects on my GitHub",
-    "items": {
-      "sfr": {
+    "items": [
+      {
+        "id": "sfr",
         "title": "SFR Unified Label",
         "category": "Enterprise System",
         "description": "Centralization and harmonization of SFR product labels to improve data consistency. Implementation of unit tests and continuous integration with Jenkins/Docker.",
@@ -241,7 +242,8 @@
         "impact": "National deployment and improved data reliability",
         "gradient": "from-accent to-primary"
       },
-      "esg": {
+      {
+        "id": "esg",
         "title": "ESG Climate Website",
         "category": "Data & Analytics - Amundi",
         "description": "Full development of a website displaying companies' climate impact. Backend for data collection and processing via web scraping and frontend for interactive visualization.",
@@ -263,7 +265,8 @@
         "impact": "Clear visualization of climate impact for 50+ companies",
         "gradient": "from-secondary to-accent"
       },
-      "superset": {
+      {
+        "id": "superset",
         "title": "Superset Integration",
         "category": "Data & Analytics - Amundi",
         "description": "Integration of Superset to enable visualization and analysis of internal data. Automation and dashboard optimization to reduce report generation time.",
@@ -284,7 +287,8 @@
         "impact": "-30% report generation time",
         "gradient": "from-secondary to-secondary-glow"
       },
-      "alto": {
+      {
+        "id": "alto",
         "title": "Alto Studio",
         "category": "Internal Platform - Amundi",
         "description": "Development and optimization of an internal platform combining various tools for employees: data visualization, data analysis, Jupyter notebooks, VS Code online, ChatGPT integration, and data pipelines.",
@@ -311,7 +315,8 @@
         "impact": "Improved data exploitation for internal teams",
         "gradient": "from-primary to-primary-dark"
       },
-      "ia": {
+      {
+        "id": "ia",
         "title": "Generative AI Music",
         "category": "Innovation Sony CSL",
         "description": "Development of a collaborative web app leveraging a generative AI model for interactive music creation. Collaboration with R&D teams on audio generation and mixing algorithms.",
@@ -333,7 +338,8 @@
         "impact": "SchooLab award-winning project",
         "gradient": "from-secondary to-secondary-glow"
       },
-      "stayalive": {
+      {
+        "id": "stayalive",
         "title": "StayAlive",
         "category": "Medical Emergency Mobile App",
         "description": "Android/iOS mobile app managing medical emergencies with geolocation and real-time alerts. Centralization and processing of user health data for prioritizing interventions.",
@@ -357,7 +363,8 @@
         "impact": "100+ active users",
         "gradient": "from-primary to-primary-dark"
       },
-      "acenstream": {
+      {
+        "id": "acenstream",
         "title": "Acenstream",
         "category": "Internal Platform ACENSI",
         "description": "Platform for distribution and sharing of multimedia content for internal teams. Rights management and optimized workflows for 200+ employees.",
@@ -382,7 +389,8 @@
         "impact": "200+ employees",
         "gradient": "from-primary to-secondary"
       },
-      "acensigne": {
+      {
+        "id": "acensigne",
         "title": "Acensigne",
         "category": "Electronic Signature",
         "description": "Internal secure e-signature tool with advanced cryptography. Intuitive interface and optimized workflow for business processes.",
@@ -405,7 +413,8 @@
         "impact": "Deployed in production",
         "gradient": "from-primary to-secondary"
       },
-      "vrbaseball": {
+      {
+        "id": "vrbaseball",
         "title": "VR Baseball",
         "category": "Academic Project - VR",
         "description": "Immersive virtual reality baseball game with Unity and C#. Multiplayer gameplay with realistic mechanics and interactive 3D environments.",
@@ -420,7 +429,8 @@
         "impact": "Enhanced interactive VR experience",
         "gradient": "from-primary to-secondary"
       },
-      "rtype": {
+      {
+        "id": "rtype",
         "title": "R-Type",
         "category": "Academic Project - C++",
         "description": "Networked multiplayer version of the R-Type game, developed with a modular C++ game engine and optimized UDP protocol.",
@@ -435,7 +445,7 @@
         "impact": "Smooth and synchronized multiplayer gameplay",
         "gradient": "from-primary to-secondary"
       }
-    }
+    ]
   },
   "education": {
     "title": "Education",

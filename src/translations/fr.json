@@ -217,8 +217,9 @@
     "viewProject": "Voir le projet",
     "seeAllOnGitHub": "Voir tous mes projets",
     "githubCTA": "Découvrez plus de projets sur mon GitHub",
-    "items": {
-      "sfr": {
+    "items": [
+      {
+        "id": "sfr",
         "title": "SFR Étiquette Unifiée",
         "category": "Système Enterprise",
         "description": "Centralisation et harmonisation des labels produits SFR pour améliorer la cohérence des données. Mise en place de tests unitaires et intégration continue avec Jenkins/Docker.",
@@ -241,7 +242,8 @@
         "impact": "Déploiement national et meilleure fiabilité des données",
         "gradient": "from-accent to-primary"
       },
-      "esg": {
+      {
+        "id": "esg",
         "title": "Site ESG Climate",
         "category": "Data & Analytics - Amundi",
         "description": "Développement complet d’un site web affichant l’impact climatique des entreprises. Back-end pour collecter et traiter les données via web scraping et front-end pour visualisation interactive.",
@@ -263,7 +265,8 @@
         "impact": "Visualisation claire de l’impact climatique pour 50+ entreprises",
         "gradient": "from-secondary to-accent"
       },
-      "superset": {
+      {
+        "id": "superset",
         "title": "Intégration Superset",
         "category": "Data & Analytics - Amundi",
         "description": "Intégration de Superset pour permettre la visualisation et l’analyse des données internes. Automatisation et optimisation des dashboards pour réduire le temps de génération des rapports.",
@@ -284,7 +287,8 @@
         "impact": "-30% temps de génération des rapports",
         "gradient": "from-secondary to-secondary-glow"
       },
-      "alto": {
+      {
+        "id": "alto",
         "title": "Alto Studio",
         "category": "Plateforme Interne - Amundi",
         "description": "Développement et optimisation d’une plateforme interne regroupant divers outils pour les employés : visualisation de données, analyses data, notebooks Jupyter, VS Code en ligne, intégration de ChatGPT et pipelines de données.",
@@ -311,7 +315,8 @@
         "impact": "Facilitation de l’exploitation des données pour les équipes internes",
         "gradient": "from-primary to-primary-dark"
       },
-      "ia": {
+      {
+        "id": "ia",
         "title": "IA Générative Musicale",
         "category": "Innovation Sony CSL",
         "description": "Développement d’une web app collaborative exploitant un modèle IA génératif pour la création musicale interactive. Collaboration avec les équipes R&D sur les algorithmes de génération et mixage audio.",
@@ -333,7 +338,8 @@
         "impact": "Projet lauréat SchooLab",
         "gradient": "from-secondary to-secondary-glow"
       },
-      "stayalive": {
+      {
+        "id": "stayalive",
         "title": "StayAlive",
         "category": "Application Mobile d'Urgence",
         "description": "Application mobile Android/iOS de gestion des urgences médicales avec géolocalisation et alertes en temps réel. Centralisation et traitement des données utilisateurs santé pour priorisation des interventions.",
@@ -357,7 +363,8 @@
         "impact": "100+ utilisateurs actifs",
         "gradient": "from-primary to-primary-dark"
       },
-      "acenstream": {
+      {
+        "id": "acenstream",
         "title": "Acenstream",
         "category": "Plateforme Interne ACENSI",
         "description": "Plateforme de diffusion et partage de contenus multimédias pour les équipes internes. Gestion des droits et workflows optimisés pour 200+ collaborateurs.",
@@ -382,7 +389,8 @@
         "impact": "200+ collaborateurs",
         "gradient": "from-primary to-secondary"
       },
-      "acensigne": {
+      {
+        "id": "acensigne",
         "title": "Acensigne",
         "category": "Signature Électronique",
         "description": "Outil interne de signature électronique sécurisée avec cryptographie avancée. Interface intuitive et workflow optimisé pour les processus métier.",
@@ -405,7 +413,8 @@
         "impact": "Déployé en production",
         "gradient": "from-primary to-secondary"
       },
-      "vrbaseball": {
+      {
+        "id": "vrbaseball",
         "title": "VR Baseball",
         "category": "Projet académique - VR",
         "description": "Jeu de baseball immersif en réalité virtuelle avec Unity et C#. Gameplay multijoueur avec mécaniques réalistes et environnements 3D interactifs.",
@@ -420,7 +429,8 @@
         "impact": "Expérience VR interactive enrichie",
         "gradient": "from-primary to-secondary"
       },
-      "rtype": {
+      {
+        "id": "rtype",
         "title": "R-Type",
         "category": "Projet académique - C++",
         "description": "Version multijoueur en réseau du jeu R-Type, développée avec un moteur de jeu en C++ modulaire et un protocole UDP optimisé.",
@@ -435,7 +445,7 @@
         "impact": "Jeu fluide et synchronisé en multijoueur",
         "gradient": "from-primary to-secondary"
       }
-    }
+    ]
   },
   "education": {
     "title": "Formations",

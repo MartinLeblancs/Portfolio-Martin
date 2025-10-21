@@ -58,10 +58,14 @@ const Projects = ({ translations }: ProjectsProps) => {
     setExpandedTechs((prev) => ({ ...prev, [title]: !prev[title] }));
   };
 
-  const projectKeys = Object.keys(translations.items);
+  const projectKeys = translations.items ? Object.keys(translations.items) : [];
+  if (projectKeys.length === 0) return null;
+
   const displayedKeys = showAllProjects
     ? projectKeys
     : projectKeys.slice(0, MAX_PROJECTS);
+
+
 
   return (
     <section

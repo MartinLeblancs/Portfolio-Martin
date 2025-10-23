@@ -23,39 +23,156 @@
   },
   "skills": {
     "title": "Expertises Techniques",
-    "subtitle": "Une palette complète de compétences pour transformer vos idées en réalité digitale",
+    "subtitle": "Une palette complète de compétences pour transformer vos idées en solutions digitales performantes",
+    "showMore": {
+      "more": "Voir plus",
+      "less": "Voir moins"
+    },
     "categories": {
+      "languages": {
+        "icon": "Terminal",
+        "color": "from-primary-dark to-accent",
+        "title": "Langages de Programmation",
+        "description": "Solides bases en langages modernes et bas-niveau utilisés pour le développement logiciel et système.",
+        "skills": [
+          "C",
+          "C++",
+          "C#",
+          "Python",
+          "Java",
+          "C#",
+          "TypeScript",
+          "JavaScript",
+          "Assembly",
+          "Haskell",
+          "Php",
+          "SQL",
+          "Html",
+          "Css"
+        ]
+      },
       "fullstack": {
+        "icon": "Code",
+        "color": "from-primary to-primary-glow",
         "title": "Développement Fullstack",
-        "description": "Création d'applications web et mobile performantes"
+        "description": "Création d’applications web performantes, de la conception front-end à la logique serveur.",
+        "skills": [
+          "React.js",
+          "Next.js",
+          "Vue.js",
+          "Angular",
+          "Svelte",
+          "Node.js",
+          ".NET",
+          "REST API",
+          "Tailwind",
+          "Vite"
+        ]
       },
       "mobile": {
+        "icon": "Smartphone",
+        "color": "from-secondary to-secondary-glow",
         "title": "Mobile & Cross-platform",
-        "description": "Applications natives et hybrides iOS/Android"
+        "description": "Conception d’applications mobiles natives et hybrides pour iOS et Android.",
+        "skills": [
+          "React Native",
+          "Expo",
+          "Flutter",
+          "Dart",
+          "Kotlin",
+          "Swift",
+          "Firebase"
+        ]
       },
       "ia": {
+        "icon": "Brain",
+        "color": "from-accent-dark to-secondary",
         "title": "IA & Data Science",
-        "description": "Intelligence artificielle et traitement de données"
-      },
-      "cybersecurity": {
-        "title": "Cybersécurité",
-        "description": "Sécurité applicative et infrastructure"
+        "description": "Conception de solutions basées sur l’intelligence artificielle et l’analyse de données.",
+        "skills": [
+          "TensorFlow",
+          "PyTorch",
+          "Pandas",
+          "Numpy",
+          "Scikit-learn",
+          "Data Engineering",
+          "Machine Learning"
+        ]
       },
       "cloud": {
+        "icon": "Cloud",
+        "color": "from-secondary to-accent-dark",
         "title": "Cloud & DevOps",
-        "description": "Infrastructure moderne et automatisation"
+        "description": "Déploiement, automatisation et gestion d’infrastructures modernes dans le cloud.",
+        "skills": [
+          "Docker",
+          "AWS",
+          "Azure",
+          "Jenkins",
+          "GitHub Actions",
+          "Kafka",
+          "Kubernetes",
+          "CI/CD",
+          "Terraform",
+          "Serverless"
+        ]
       },
       "database": {
-        "title": "Bases de données",
-        "description": "Conception et optimisation de données"
+        "icon": "Database",
+        "color": "from-accent to-primary",
+        "title": "Bases de Données",
+        "description": "Conception, optimisation et intégration de bases de données relationnelles et NoSQL.",
+        "skills": [
+          "SQL",
+          "PostgreSQL",
+          "MongoDB",
+          "MySQL",
+          "Data Warehousing",
+          "Redis",
+          "ORM",
+          "Neo4j",
+          "ElasticSearch"
+        ]
+      },
+      "cybersecurity": {
+        "icon": "Shield",
+        "color": "from-primary-dark to-primary",
+        "title": "Cybersécurité",
+        "description": "Mise en place de pratiques sécurisées pour les applications et infrastructures.",
+        "skills": [
+          "Sécurité Web",
+          "DevSecOps",
+          "Audit",
+          "Bonnes pratiques",
+          "OAuth2",
+          "JWT",
+          "OWASP",
+          "SSL/TLS"
+        ]
       }
     },
-    "stats": {
-      "technologies": "Technologies maîtrisées",
-      "experience": "Années d'expérience",
-      "projects": "Projets réalisés",
-      "languages": "Langues parlées"
-    }
+    "stats": [
+      {
+        "key": "technologies",
+        "value": "50+",
+        "description": "Technologies maîtrisées"
+      },
+      {
+        "key": "experience",
+        "value": "2+",
+        "description": "Années d’expérience"
+      },
+      {
+        "key": "projects",
+        "value": "30+",
+        "description": "Projets réalisés"
+      },
+      {
+        "key": "languages",
+        "value": "4",
+        "description": "Langues parlées"
+      }
+    ]
   },
   "timeline": {
     "title": "Mon Parcours",
@@ -123,7 +240,28 @@
         }
       ]
     },
-    "sony": {
+    "stayalive": {
+      "title": "StayAlive",
+      "company": "EPITECH Innovative Project",
+      "location": "Paris, France",
+      "period": "Sept 2023 - Févr 2025",
+      "description": "Application mobile d'urgence médicale permettant à une communauté vérifiée de secouristes d'intervenir rapidement",
+      "achievements": [
+        {
+          "text": "Développement complet de l’application mobile (React Native) et backend (Node.js)"
+        },
+        {
+          "text": "Pilotage du projet et coordination d'une équipe pour 100+ utilisateurs"
+        },
+        {
+          "text": "Implémentation de fonctionnalités : disponibilité utilisateur, alertes urgences, géolocalisation, documents, signalement de bugs"
+        },
+        {
+          "text": "Mise en place de tests unitaires et optimisation de la performance"
+        }
+      ]
+    },
+    "sony-ca-schoolab": {
       "title": "Chef de Projets Innovants",
       "company": "Sony CSL & Crédit Agricole / SchooLab",
       "location": "Paris, France",
@@ -148,24 +286,21 @@
         }
       ]
     },
-    "stayalive": {
-      "title": "StayAlive",
-      "company": "EPITECH Innovative Project",
-      "location": "Paris, France",
-      "period": "Sept 2023 - Févr 2025",
-      "description": "Application mobile d'urgence médicale permettant à une communauté vérifiée de secouristes d'intervenir rapidement",
+    "agripower-france": {
+      "title": "Web Developer Intern",
+      "company": "AGRIPOWER FRANCE",
+      "location": "Nantes, Pays de la Loire, France",
+      "period": "août 2021 - déc. 2021",
+      "description": "Stage de développement web hybride, combinant personnalisation WordPress et code sur-mesure pour créer un site web moderne et ergonomique.",
       "achievements": [
         {
-          "text": "Développement complet de l’application mobile (React Native) et backend (Node.js)"
+          "text": "Création et livraison d'un site web dynamique pour Agripower France"
         },
         {
-          "text": "Pilotage du projet et coordination d'une équipe pour 100+ utilisateurs"
+          "text": "Personnalisation avancée de WordPress pour répondre aux besoins spécifiques de l'entreprise"
         },
         {
-          "text": "Implémentation de fonctionnalités : disponibilité utilisateur, alertes urgences, géolocalisation, documents, signalement de bugs"
-        },
-        {
-          "text": "Mise en place de tests unitaires et optimisation de la performance"
+          "text": "Intégration de fonctionnalités sur-mesure pour améliorer l'expérience utilisateur"
         }
       ]
     },
@@ -189,10 +324,10 @@
     },
     "beijing": {
       "title": "Beijing Jiaotong University",
-      "company": "Échange universitaire",
+      "company": "Master 1 - Échange universitaire",
       "location": "Pékin, Chine",
       "period": "2023 - 2024",
-      "description": "Master 1 - Expérience internationale",
+      "description": "Expérience internationale",
       "achievements": [
         {
           "text": "Immersion culturelle et académique"
@@ -443,6 +578,26 @@
           "Network Programming"
         ],
         "impact": "Jeu fluide et synchronisé en multijoueur",
+        "gradient": "from-primary to-secondary"
+      },
+      {
+        "id": "schoolab-ca",
+        "title": "Chef de Projets Innovants - CPI",
+        "category": "Innovation / Web Development",
+        "description": "Participation au CPI (Création d’un Projet Innovant) pour répondre à la problématique du Crédit Agricole : attirer et améliorer l'image de l'entreprise auprès des jeunes talents tech. Réalisation d'un design sprint complet, proposition de trois solutions et sélection d'une solution finale (organisation d’un événement). Développement et création de sites web pour soutenir le projet.",
+        "technologies": [
+          "React.js",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "WordPress",
+          "Figma",
+          "UX/UI Design",
+          "Design Sprint",
+          "Git",
+          "Agile"
+        ],
+        "impact": "Sélection de la solution finale et création de supports web pour l'événement, améliorant l'attractivité auprès des jeunes talents tech",
         "gradient": "from-primary to-secondary"
       }
     ]

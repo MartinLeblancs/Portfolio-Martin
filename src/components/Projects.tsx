@@ -3,36 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import { ChevronDown, ChevronUp, ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-interface ProjectData {
-  id: string;
-  title: string;
-  category: string;
-  description: string;
-  technologies: string[];
-  impact: string;
-  gradient: string;
-}
-
-interface ProjectsMessages {
-  title: string;
-  subtitle: string;
-  seeMore: string;
-  seeLess: string;
-  viewProject: string;
-  seeAllOnGitHub: string;
-  githubCTA: string;
-  items: ProjectData[];
-}
-
-interface ProjectsProps {
-  translations: ProjectsMessages;
-}
+import { useI18n } from "@/contexts/i18n";
 
 const MAX_PROJECTS = 6;
 const MAX_TECHS = 8;
 
-const Projects = ({ translations }: ProjectsProps) => {
+const Projects = () => {
+  const { messages } = useI18n();
+  if (!messages.projects) return null;
+  const t = messages.projects;
   const sectionRef = useRef<HTMLElement>(null);
   const [showAllProjects, setShowAllProjects] = useState(false);
   const [expandedTechs, setExpandedTechs] = useState<{ [key: string]: boolean }>({});
@@ -57,18 +36,12 @@ const Projects = ({ translations }: ProjectsProps) => {
     setExpandedTechs((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  if (!translations.items || translations.items.length === 0) return null;
+  if (!t.items || t.items.length === 0) return null;
 
-  const displayedProjects = showAllProjects
-    ? translations.items
-    : translations.items.slice(0, MAX_PROJECTS);
+  const displayedProjects = showAllProjects ? t.items : t.items.slice(0, MAX_PROJECTS);
 
   return (
-    <section
-      id="projects"
-      ref={sectionRef}
-      className="py-24 relative overflow-hidden pattern-circles"
-    >
+    <section id="projects" ref={sectionRef} className="py-24 relative overflow-hidden pattern-circles">
       <div className="absolute inset-0 bg-gradient-to-b from-background via-transparent to-background" />
 
       {/* Decorative elements */}
@@ -81,11 +54,9 @@ const Projects = ({ translations }: ProjectsProps) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 scroll-reveal">
           <h2 className="text-5xl font-bold mb-4 font-noto-jp">
-            <span className="text-gradient">{translations.title}</span>
+            <span className="text-gradient">{t.title || "Projets"}</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {translations.subtitle}
-          </p>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t.subtitle || ""}</p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto transition-all duration-500">
@@ -114,21 +85,21 @@ const Projects = ({ translations }: ProjectsProps) => {
                   </h3>
 
                   {/* Description */}
-                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">
-                    {project.description}
-                  </p>
+                  <p className="text-muted-foreground text-sm leading-relaxed mb-6">{project.description}</p>
 
                   {/* Technologies */}
                   <div className="flex flex-wrap gap-2 mb-4">
-                    {(isTechExpanded ? project.technologies : project.technologies.slice(0, MAX_TECHS)).map((tech, idx) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 bg-primary/10 text-xs rounded border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 cursor-default wave-animation"
-                        style={{ animationDelay: `${idx * 0.1}s` }}
-                      >
-                        {tech}
-                      </span>
-                    ))}
+                    {(isTechExpanded ? project.technologies : project.technologies.slice(0, MAX_TECHS)).map(
+                      (tech, idx) => (
+                        <span
+                          key={tech}
+                          className="px-2 py-1 bg-primary/10 text-xs rounded border border-primary/20 text-primary hover:bg-primary/20 hover:border-primary/40 transition-all duration-300 cursor-default wave-animation"
+                          style={{ animationDelay: `${idx * 0.1}s` }}
+                        >
+                          {tech}
+                        </span>
+                      )
+                    )}
                   </div>
 
                   {project.technologies.length > MAX_TECHS && (
@@ -138,11 +109,11 @@ const Projects = ({ translations }: ProjectsProps) => {
                     >
                       {isTechExpanded ? (
                         <>
-                          {translations.seeLess} <ChevronUp className="ml-1 h-3 w-3" />
+                          {t.seeLess || "Voir moins"} <ChevronUp className="ml-1 h-3 w-3" />
                         </>
                       ) : (
                         <>
-                          {translations.seeMore} <ChevronDown className="ml-1 h-3 w-3" />
+                          {t.seeMore || "Voir plus"} <ChevronDown className="ml-1 h-3 w-3" />
                         </>
                       )}
                     </button>
@@ -164,7 +135,7 @@ const Projects = ({ translations }: ProjectsProps) => {
         </div>
 
         {/* Toggle projects */}
-        {translations.items.length > MAX_PROJECTS && (
+        {t.items.length > MAX_PROJECTS && (
           <div className="text-center mt-12">
             <Button
               variant="outline"
@@ -172,27 +143,23 @@ const Projects = ({ translations }: ProjectsProps) => {
               onClick={() => setShowAllProjects((prev) => !prev)}
               className="border-primary/50 hover:bg-primary/10 hover:border-primary"
             >
-              {showAllProjects ? translations.seeLess : translations.seeMore}
+              {showAllProjects ? t.seeLess || "Voir moins" : t.seeMore || "Voir plus"}
             </Button>
           </div>
         )}
 
         {/* GitHub CTA */}
         <div className="text-center mt-16 scroll-reveal">
-          <p className="text-muted-foreground mb-6">{translations.githubCTA}</p>
+          <p className="text-muted-foreground mb-6">{t.githubCTA || ""}</p>
           <Button
             size="lg"
             variant="outline"
             className="border-primary/50 hover:bg-primary/10 hover:border-primary group relative overflow-hidden zen-circle"
             asChild
           >
-            <a
-              href="https://github.com/MartinLeblancs"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href="https://github.com/MartinLeblancs" target="_blank" rel="noopener noreferrer">
               <Github className="mr-2 h-5 w-5 group-hover:rotate-12 transition-transform" />
-              {translations.seeAllOnGitHub}
+              {t.seeAllOnGitHub || "Voir tout sur GitHub"}
               <ExternalLink className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/10 to-primary/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />
             </a>

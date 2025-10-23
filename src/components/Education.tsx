@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { GraduationCap, MapPin } from "lucide-react";
+import { useI18n } from "@/contexts/i18n";
 
 interface EducationItem {
   school: string;
@@ -21,26 +22,15 @@ interface SpecializationItem {
   text: string;
 }
 
-interface EducationMessages {
-  title: string;
-  educationTitle: string;
-  languagesTitle: string;
-  specializationsTitle: string;
-  education: { [key: string]: EducationItem };
-  languages: { [key: string]: LanguageItem };
-  specializations: SpecializationItem[];
-}
-
-interface EducationProps {
-  translations: EducationMessages;
-}
-
-const Education = ({ translations }: EducationProps) => {
+const Education = () => {
+  const { messages } = useI18n();
+  if (!messages.education) return null;
+  const t = messages.education;
   const [visibleItems, setVisibleItems] = useState<Set<number>>(new Set());
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  const educationKeys = Object.keys(translations.education);
-  const languageKeys = Object.keys(translations.languages);
+  const educationKeys = t.education ? Object.keys(t.education) : [];
+  const languageKeys = t.languages ? Object.keys(t.languages) : [];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -67,26 +57,22 @@ const Education = ({ translations }: EducationProps) => {
       <div className="max-w-6xl mx-auto">
         <h2 className="text-5xl md:text-6xl font-black text-center mb-16">
           <span className="bg-gradient-accent bg-clip-text text-transparent">
-            {translations.title}
+            {t.title || "Éducation & Compétences"}
           </span>
         </h2>
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Education */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-primary mb-8">{translations.educationTitle}</h3>
+            <h3 className="text-3xl font-bold text-primary mb-8">{t.educationTitle || "Formation"}</h3>
             {educationKeys.map((key, index) => {
-              const item = translations.education[key];
+              const item: EducationItem = t.education[key];
               return (
                 <div
                   key={key}
-                  ref={(el) => {
-                    itemRefs.current[index] = el;
-                  }}
-
+                  ref={(el) => { itemRefs.current[index] = el; }}
                   data-index={index}
-                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-crimson hover:scale-[1.02] ${visibleItems.has(index) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"
-                    }`}
+                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-crimson hover:scale-[1.02] ${visibleItems.has(index) ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10"}`}
                   style={{ transitionDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-start gap-4">
@@ -114,27 +100,21 @@ const Education = ({ translations }: EducationProps) => {
 
           {/* Languages */}
           <div className="space-y-6">
-            <h3 className="text-3xl font-bold text-secondary mb-8">{translations.languagesTitle}</h3>
+            <h3 className="text-3xl font-bold text-secondary mb-8">{t.languagesTitle || "Langues"}</h3>
             {languageKeys.map((key, index) => {
-              const lang = translations.languages[key];
+              const lang: LanguageItem = t.languages[key];
               return (
                 <div
                   key={key}
-                  ref={(el) => {
-                    itemRefs.current[educationKeys.length + index] = el;
-                  }} data-index={educationKeys.length + index}
-                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-gold hover:scale-[1.02] ${visibleItems.has(educationKeys.length + index)
-                    ? "opacity-100 translate-x-0"
-                    : "opacity-0 translate-x-10"
-                    }`}
+                  ref={(el) => { itemRefs.current[educationKeys.length + index] = el; }}
+                  data-index={educationKeys.length + index}
+                  className={`bg-card border border-border rounded-xl p-6 transition-all duration-700 hover:shadow-gold hover:scale-[1.02] ${visibleItems.has(educationKeys.length + index) ? "opacity-100 translate-x-0" : "opacity-0 translate-x-10"}`}
                   style={{ transitionDelay: `${index * 0.1}s` }}
                 >
                   <div className="flex items-center justify-between mb-2">
                     <h4 className="text-xl font-bold text-foreground">{lang.name}</h4>
                     {lang.detail && (
-                      <span className="px-3 py-1 bg-accent/20 text-primary text-sm rounded-full">
-                        {lang.detail}
-                      </span>
+                      <span className="px-3 py-1 bg-accent/20 text-primary text-sm rounded-full">{lang.detail}</span>
                     )}
                   </div>
                   <p className="text-muted-foreground">{lang.level}</p>
@@ -146,13 +126,10 @@ const Education = ({ translations }: EducationProps) => {
 
         {/* Specializations */}
         <div className="bg-card border border-border rounded-xl p-8 shadow-elevated">
-          <h3 className="text-3xl font-bold text-center mb-8">{translations.specializationsTitle}</h3>
+          <h3 className="text-3xl font-bold text-center mb-8">{t.specializationsTitle || "Spécialisations"}</h3>
           <div className="grid md:grid-cols-2 gap-4">
-            {translations.specializations.map((spec, index) => (
-              <div
-                key={index}
-                className="flex items-center gap-3 p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors"
-              >
+            {t.specializations?.map((spec: SpecializationItem, index: number) => (
+              <div key={index} className="flex items-center gap-3 p-4 bg-muted/30 rounded-lg hover:bg-muted/50 transition-colors">
                 <span className="text-foreground">{spec.text}</span>
               </div>
             ))}

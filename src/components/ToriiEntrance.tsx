@@ -1,16 +1,16 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { useI18n } from "@/contexts/i18n";
 
 interface ToriiEntranceProps {
   onComplete: () => void;
-  translations: {
-    welcome: string;
-    portfolio: string;
-  };
 }
 
-const ToriiEntrance = ({ onComplete, translations }: ToriiEntranceProps) => {
+const ToriiEntrance = ({ onComplete }: ToriiEntranceProps) => {
+  const { messages } = useI18n();
+  const t = messages.toriiEntrance || { welcome: "Bienvenue", portfolio: "Mon Portfolio" };
+
   const [isAnimating, setIsAnimating] = useState(true);
 
   useEffect(() => {
@@ -70,9 +70,8 @@ const ToriiEntrance = ({ onComplete, translations }: ToriiEntranceProps) => {
         {[...Array(15)].map((_, i) => (
           <div
             key={`particle-${i}`}
-            className={`absolute rounded-full animate-float ${
-              i % 2 === 0 ? "bg-primary w-2 h-2" : "bg-accent w-1.5 h-1.5"
-            }`}
+            className={`absolute rounded-full animate-float ${i % 2 === 0 ? "bg-primary w-2 h-2" : "bg-accent w-1.5 h-1.5"
+              }`}
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -99,14 +98,14 @@ const ToriiEntrance = ({ onComplete, translations }: ToriiEntranceProps) => {
             style={{ animationDelay: "0.5s" }}
           >
             <span className="bg-gradient-accent bg-clip-text text-transparent">
-              {translations.welcome}
+              {t.welcome}
             </span>
           </h1>
           <p
             className="text-xl text-muted-foreground animate-fade-in-up"
             style={{ animationDelay: "0.8s" }}
           >
-            {translations.portfolio}
+            {t.portfolio}
           </p>
         </div>
       </div>

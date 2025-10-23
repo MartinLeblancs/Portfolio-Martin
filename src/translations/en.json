@@ -23,39 +23,156 @@
   },
   "skills": {
     "title": "Technical Expertise",
-    "subtitle": "A complete set of skills to turn your ideas into digital reality",
+    "subtitle": "A complete set of skills to turn your ideas into high-performing digital solutions",
+    "showMore": {
+      "more": "Show more",
+      "less": "Show less"
+    },
     "categories": {
+      "languages": {
+        "icon": "Terminal",
+        "color": "from-primary-dark to-accent",
+        "title": "Programming Languages",
+        "description": "Strong foundations in modern and low-level languages used for software and systems development.",
+        "skills": [
+          "C",
+          "C++",
+          "C#",
+          "Python",
+          "Java",
+          "C#",
+          "TypeScript",
+          "JavaScript",
+          "Assembly",
+          "Haskell",
+          "Php",
+          "SQL",
+          "Html",
+          "Css"
+        ]
+      },
       "fullstack": {
+        "icon": "Code",
+        "color": "from-primary to-primary-glow",
         "title": "Fullstack Development",
-        "description": "Building high-performance web and mobile applications"
+        "description": "Building high-performance web applications from front-end design to back-end logic.",
+        "skills": [
+          "React.js",
+          "Next.js",
+          "Vue.js",
+          "Angular",
+          "Svelte",
+          "Node.js",
+          ".NET",
+          "REST API",
+          "Tailwind",
+          "Vite"
+        ]
       },
       "mobile": {
+        "icon": "Smartphone",
+        "color": "from-secondary to-secondary-glow",
         "title": "Mobile & Cross-platform",
-        "description": "Native and hybrid iOS/Android apps"
+        "description": "Designing native and hybrid mobile apps for iOS and Android.",
+        "skills": [
+          "React Native",
+          "Expo",
+          "Flutter",
+          "Dart",
+          "Kotlin",
+          "Swift",
+          "Firebase"
+        ]
       },
       "ia": {
+        "icon": "Brain",
+        "color": "from-accent-dark to-secondary",
         "title": "AI & Data Science",
-        "description": "Artificial intelligence and data processing"
-      },
-      "cybersecurity": {
-        "title": "Cybersecurity",
-        "description": "Application and infrastructure security"
+        "description": "Designing solutions based on artificial intelligence and data analysis.",
+        "skills": [
+          "TensorFlow",
+          "PyTorch",
+          "Pandas",
+          "Numpy",
+          "Scikit-learn",
+          "Data Engineering",
+          "Machine Learning"
+        ]
       },
       "cloud": {
+        "icon": "Cloud",
+        "color": "from-secondary to-accent-dark",
         "title": "Cloud & DevOps",
-        "description": "Modern infrastructure and automation"
+        "description": "Deployment, automation, and management of modern cloud infrastructures.",
+        "skills": [
+          "Docker",
+          "AWS",
+          "Azure",
+          "Jenkins",
+          "GitHub Actions",
+          "Kafka",
+          "Kubernetes",
+          "CI/CD",
+          "Terraform",
+          "Serverless"
+        ]
       },
       "database": {
+        "icon": "Database",
+        "color": "from-accent to-primary",
         "title": "Databases",
-        "description": "Data design and optimization"
+        "description": "Design, optimization and integration of relational and NoSQL databases.",
+        "skills": [
+          "SQL",
+          "PostgreSQL",
+          "MongoDB",
+          "MySQL",
+          "Data Warehousing",
+          "Redis",
+          "ORM",
+          "Neo4j",
+          "ElasticSearch"
+        ]
+      },
+      "cybersecurity": {
+        "icon": "Shield",
+        "color": "from-primary-dark to-primary",
+        "title": "Cybersecurity",
+        "description": "Implementing secure practices for applications and infrastructures.",
+        "skills": [
+          "Web Security",
+          "DevSecOps",
+          "Audit",
+          "Best Practices",
+          "OAuth2",
+          "JWT",
+          "OWASP",
+          "SSL/TLS"
+        ]
       }
     },
-    "stats": {
-      "technologies": "Technologies mastered",
-      "experience": "Years of experience",
-      "projects": "Projects completed",
-      "languages": "Languages spoken"
-    }
+    "stats": [
+      {
+        "key": "technologies",
+        "value": "50+",
+        "description": "Technologies mastered"
+      },
+      {
+        "key": "experience",
+        "value": "2+",
+        "description": "Years of experience"
+      },
+      {
+        "key": "projects",
+        "value": "30+",
+        "description": "Projects completed"
+      },
+      {
+        "key": "languages",
+        "value": "4",
+        "description": "Languages spoken"
+      }
+    ]
   },
   "timeline": {
     "title": "My Journey",
@@ -105,25 +222,28 @@
         }
       ]
     },
-    "schoolab": {
-      "title": "Project Manager - SchooLab / Crédit Agricole",
-      "company": "Crédit Agricole / SchooLab",
+    "stayalive": {
+      "title": "StayAlive",
+      "company": "EPITECH Innovative Project",
       "location": "Paris, France",
-      "period": "2022 - 2023",
-      "description": "Technology innovation project and young talent attraction",
+      "period": "Sept 2023 - Feb 2025",
+      "description": "Medical emergency mobile app allowing a verified community of rescuers to act quickly",
       "achievements": [
         {
-          "text": "Winner of the SchooLab technological innovation & AI project"
+          "text": "Full development of mobile app (React Native) and backend (Node.js)"
         },
         {
-          "text": "Implementation of IT solutions to attract young talents"
+          "text": "Project management and coordination of a team for 100+ users"
         },
         {
-          "text": "Presentation of prototypes at a Demo Day organized by SchooLab"
+          "text": "Implementation of features: user availability, emergency alerts, geolocation, documents, bug reporting"
+        },
+        {
+          "text": "Unit testing and performance optimization"
         }
       ]
     },
-    "sony": {
+    "sony-ca-schoolab": {
       "title": "Innovative Project Manager",
       "company": "Sony CSL & Crédit Agricole / SchooLab",
       "location": "Paris, France",
@@ -148,24 +268,21 @@
         }
       ]
     },
-    "stayalive": {
-      "title": "StayAlive",
-      "company": "EPITECH Innovative Project",
-      "location": "Paris, France",
-      "period": "Sept 2023 - Feb 2025",
-      "description": "Medical emergency mobile app allowing a verified community of rescuers to act quickly",
+    "agripower-france": {
+      "title": "Web Developer Intern",
+      "company": "AGRIPOWER FRANCE",
+      "location": "Nantes, Pays de la Loire, France",
+      "period": "August 2021 - December 2021",
+      "description": "Hybrid web development internship, combining WordPress customization with custom code to deliver a modern and user-friendly website.",
       "achievements": [
         {
-          "text": "Full development of mobile app (React Native) and backend (Node.js)"
+          "text": "Built and delivered a dynamic website for Agripower France"
         },
         {
-          "text": "Project management and coordination of a team for 100+ users"
+          "text": "Performed advanced WordPress customization to meet specific company needs"
         },
         {
-          "text": "Implementation of features: user availability, emergency alerts, geolocation, documents, bug reporting"
-        },
-        {
-          "text": "Unit testing and performance optimization"
+          "text": "Integrated custom features to enhance user experience"
         }
       ]
     },
@@ -189,10 +306,10 @@
     },
     "beijing": {
       "title": "Beijing Jiaotong University",
-      "company": "University Exchange",
+      "company": "Master 1 - University Exchange",
       "location": "Beijing, China",
       "period": "2023 - 2024",
-      "description": "Master 1 - International experience",
+      "description": "International experience",
       "achievements": [
         {
           "text": "Cultural and academic immersion"
@@ -443,6 +560,26 @@
           "Network Programming"
         ],
         "impact": "Smooth and synchronized multiplayer gameplay",
+        "gradient": "from-primary to-secondary"
+      },
+      {
+        "id": "schoolab-ca",
+        "title": "Innovation Project Lead - CPI",
+        "category": "Innovation / Web Development",
+        "description": "Participated in the CPI (Creation of an Innovative Project) to address Crédit Agricole's challenge: attracting and improving the company's image among young tech talents. Conducted a full design sprint, proposed three solutions, and the final solution (an event) was selected. Developed and created websites to support the project.",
+        "technologies": [
+          "React.js",
+          "JavaScript",
+          "HTML",
+          "CSS",
+          "WordPress",
+          "Figma",
+          "UX/UI Design",
+          "Design Sprint",
+          "Git",
+          "Agile"
+        ],
+        "impact": "Final solution selected and web assets created for the event, enhancing attractiveness to young tech talents",
         "gradient": "from-primary to-secondary"
       }
     ]

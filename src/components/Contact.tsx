@@ -1,58 +1,36 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Mail, Phone, MapPin, Linkedin, Github, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import emailjs from "emailjs-com";
+import { useI18n } from "@/contexts/i18n";
 
-interface ContactTranslations {
-  title: string;
-  subtitle: string;
-  contactInfo: { email: string; phone: string; location: string };
-  social: { linkedin: string; github: string };
-  form: {
-    title: string;
-    name: string;
-    email: string;
-    subject: string;
-    message: string;
-    namePlaceholder: string;
-    emailPlaceholder: string;
-    subjectPlaceholder: string;
-    messagePlaceholder: string;
-    submit: string;
-    success: string;
-    error: string;
-  };
-  findMeOn: string;
-}
-
-interface ContactProps {
-  translations: ContactTranslations;
-}
-
-const Contact = ({ translations }: ContactProps) => {
+const Contact = () => {
+  const { messages } = useI18n();
+  if (!messages.contact) return null;
+  const t = messages.contact;
   const sectionRef = useRef<HTMLElement>(null);
   const formRef = useRef<HTMLFormElement>(null);
 
   const contactInfo = [
     {
       icon: Mail,
-      label: translations.contactInfo.email,
+      label: t.contactInfo?.email || "Email",
       value: "martin.leblancs@epitech.eu",
       href: "mailto:martin.leblancs@epitech.eu",
     },
     {
       icon: Phone,
-      label: translations.contactInfo.phone,
+      label: t.contactInfo?.phone || "Téléphone",
       value: "07 75 11 52 42",
       href: "tel:+33775115242",
     },
     {
       icon: MapPin,
-      label: translations.contactInfo.location,
+      label: t.contactInfo?.location || "Localisation",
       value: "Boulogne Billancourt, France",
       href: null,
     },
@@ -61,13 +39,13 @@ const Contact = ({ translations }: ContactProps) => {
   const socialLinks = [
     {
       icon: Linkedin,
-      label: translations.social.linkedin,
+      label: t.social?.linkedin || "LinkedIn",
       href: "https://www.linkedin.com/in/martin-leblancs-7a2154209/",
       gradient: "from-primary to-primary-glow",
     },
     {
       icon: Github,
-      label: translations.social.github,
+      label: t.social?.github || "GitHub",
       href: "https://github.com/MartinLeblancs",
       gradient: "from-secondary to-secondary-glow",
     },
@@ -77,9 +55,7 @@ const Contact = ({ translations }: ContactProps) => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-          }
+          if (entry.isIntersecting) entry.target.classList.add("active");
         });
       },
       { threshold: 0.1 }
@@ -103,8 +79,8 @@ const Contact = ({ translations }: ContactProps) => {
         "DnZANrwntYpYDLwYM"
       )
       .then(
-        () => alert(translations.form.success),
-        (err) => alert(translations.form.error + err.text)
+        () => alert(t.form?.success || "Message envoyé !"),
+        (err) => alert((t.form?.error || "Erreur : ") + (err.text || ""))
       );
 
     formRef.current.reset();
@@ -125,16 +101,16 @@ const Contact = ({ translations }: ContactProps) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 scroll-reveal">
           <h2 className="text-5xl font-bold mb-4 font-noto-jp">
-            <span className="text-gradient">{translations.title}</span>
+            <span className="text-gradient">{t.title || "Contactez-moi"}</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{translations.subtitle}</p>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">{t.subtitle || "N'hésitez pas à m'écrire"}</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Info */}
           <div className="space-y-8 scroll-reveal">
             <div className="glass-card p-8 rounded-2xl hover-glow transition-all duration-500">
-              <h3 className="text-2xl font-bold mb-6 text-gradient font-noto-jp">{translations.form.title}</h3>
+              <h3 className="text-2xl font-bold mb-6 text-gradient font-noto-jp">{t.form?.title || "Informations de contact"}</h3>
 
               <div className="space-y-6">
                 {contactInfo.map((item) => {
@@ -146,41 +122,25 @@ const Contact = ({ translations }: ContactProps) => {
                       </div>
                       <div>
                         <p className="text-sm text-muted-foreground mb-1">{item.label}</p>
-                        <p className="font-medium group-hover:text-primary transition-colors">
-                          {item.value}
-                        </p>
+                        <p className="font-medium group-hover:text-primary transition-colors">{item.value}</p>
                       </div>
                     </div>
                   );
 
-                  return item.href ? (
-                    <a key={item.label} href={item.href} className="block">
-                      {content}
-                    </a>
-                  ) : (
-                    <div key={item.label}>{content}</div>
-                  );
+                  return item.href ? <a key={item.label} href={item.href} className="block">{content}</a> : <div key={item.label}>{content}</div>;
                 })}
               </div>
 
               {/* Social links */}
               <div className="mt-8 pt-8 border-t border-border/50">
-                <p className="text-sm text-muted-foreground mb-4">{translations.findMeOn}</p>
+                <p className="text-sm text-muted-foreground mb-4">{t.findMeOn || "Retrouvez-moi sur"}</p>
                 <div className="flex gap-4">
                   {socialLinks.map((social) => {
                     const Icon = social.icon;
                     return (
-                      <a
-                        key={social.label}
-                        href={social.href}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="flex-1"
-                      >
+                      <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" className="flex-1">
                         <div className="glass-card p-4 rounded-xl hover-glow group text-center transition-all duration-300 hover:scale-105">
-                          <div
-                            className={`inline-flex p-3 bg-gradient-to-br ${social.gradient} rounded-lg mb-2 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}
-                          >
+                          <div className={`inline-flex p-3 bg-gradient-to-br ${social.gradient} rounded-lg mb-2 group-hover:scale-110 group-hover:rotate-12 transition-all duration-300`}>
                             <Icon className="h-6 w-6 text-foreground" />
                           </div>
                           <p className="text-sm font-medium">{social.label}</p>
@@ -200,23 +160,23 @@ const Contact = ({ translations }: ContactProps) => {
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="group">
                     <label className="text-sm font-medium mb-2 block group-focus-within:text-primary transition-colors">
-                      {translations.form.name}
+                      {t.form?.name || "Nom"}
                     </label>
                     <Input
                       name="name"
-                      placeholder={translations.form.namePlaceholder}
+                      placeholder={t.form?.namePlaceholder || "Votre nom"}
                       className="bg-background/50 border-border/50 focus:border-primary transition-all duration-300 hover:border-primary/50"
                       required
                     />
                   </div>
                   <div className="group">
                     <label className="text-sm font-medium mb-2 block group-focus-within:text-primary transition-colors">
-                      {translations.form.email}
+                      {t.form?.email || "Email"}
                     </label>
                     <Input
                       type="email"
                       name="email"
-                      placeholder={translations.form.emailPlaceholder}
+                      placeholder={t.form?.emailPlaceholder || "Votre email"}
                       className="bg-background/50 border-border/50 focus:border-primary transition-all duration-300 hover:border-primary/50"
                       required
                     />
@@ -225,11 +185,11 @@ const Contact = ({ translations }: ContactProps) => {
 
                 <div className="group">
                   <label className="text-sm font-medium mb-2 block group-focus-within:text-primary transition-colors">
-                    {translations.form.subject}
+                    {t.form?.subject || "Sujet"}
                   </label>
                   <Input
                     name="subject"
-                    placeholder={translations.form.subjectPlaceholder}
+                    placeholder={t.form?.subjectPlaceholder || "Sujet du message"}
                     className="bg-background/50 border-border/50 focus:border-primary transition-all duration-300 hover:border-primary/50"
                     required
                   />
@@ -237,11 +197,11 @@ const Contact = ({ translations }: ContactProps) => {
 
                 <div className="group">
                   <label className="text-sm font-medium mb-2 block group-focus-within:text-primary transition-colors">
-                    {translations.form.message}
+                    {t.form?.message || "Message"}
                   </label>
                   <Textarea
                     name="message"
-                    placeholder={translations.form.messagePlaceholder}
+                    placeholder={t.form?.messagePlaceholder || "Votre message"}
                     rows={6}
                     className="bg-background/50 border-border/50 focus:border-primary transition-all duration-300 resize-none hover:border-primary/50"
                     required
@@ -253,7 +213,7 @@ const Contact = ({ translations }: ContactProps) => {
                   size="lg"
                   className="w-full bg-gradient-to-r from-primary to-primary-dark hover:shadow-glow transition-all duration-300 group relative overflow-hidden"
                 >
-                  <span className="relative z-10">{translations.form.submit}</span>
+                  <span className="relative z-10">{t.form?.submit || "Envoyer"}</span>
                   <Send className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform relative z-10" />
                   <div className="absolute inset-0 bg-gradient-to-r from-primary-dark to-secondary opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 </Button>

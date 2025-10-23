@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Briefcase, GraduationCap, MapPin, Calendar, Code } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useI18n } from "@/contexts/i18n";
 
 interface Achievement {
   text: string;
@@ -18,30 +19,22 @@ interface ExperienceData {
   achievements?: Achievement[];
 }
 
-interface TimelineMessages {
-  title: string;
-  subtitle: string;
-  viewProject: string;
-  showAll: string;
-  showLess: string;
-  [key: string]: any;
-}
-
-interface TimelineProps {
-  translations: TimelineMessages;
-}
+interface TimelineProps { }
 
 const experiences = [
   { key: "acensi", type: "work" },
   { key: "amundi", type: "work" },
-  { key: "schoolab", type: "work" },
-  { key: "sony", type: "project" },
   { key: "stayalive", type: "project" },
+  { key: "sony-ca-schoolab", type: "project" },
+  { key: "agripower-france", type: "work" },
   { key: "epitech", type: "education" },
   { key: "beijing", type: "education" },
 ];
 
-const Timeline = ({ translations }: TimelineProps) => {
+const Timeline = ({ }: TimelineProps) => {
+  const { messages } = useI18n();
+  if (!messages.timeline) return null;
+  const t = messages.timeline;
   const sectionRef = useRef<HTMLElement>(null);
   const [showAll, setShowAll] = useState(false);
 
@@ -63,8 +56,8 @@ const Timeline = ({ translations }: TimelineProps) => {
   const displayedExperiences = showAll
     ? experiences
     : experiences.filter((exp) =>
-        ["epitech", "beijing", "amundi", "acensi"].includes(exp.key)
-      );
+      ["epitech", "beijing", "amundi", "acensi"].includes(exp.key)
+    );
 
   return (
     <section
@@ -79,10 +72,10 @@ const Timeline = ({ translations }: TimelineProps) => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16 scroll-reveal">
           <h2 className="text-5xl font-bold mb-4 font-noto-jp">
-            <span className="text-gradient">{translations.title}</span>
+            <span className="text-gradient">{t.title}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            {translations.subtitle}
+            {t.subtitle}
           </p>
         </div>
 
@@ -90,28 +83,26 @@ const Timeline = ({ translations }: TimelineProps) => {
           <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-secondary to-accent animate-shimmer" />
 
           {displayedExperiences.map((exp, index) => {
-            const expData = translations[exp.key] as ExperienceData;
+            const expData = t[exp.key] as ExperienceData;
             if (!expData) return null;
 
             const Icon =
               exp.type === "work"
                 ? Briefcase
                 : exp.type === "project"
-                ? Code
-                : GraduationCap;
+                  ? Code
+                  : GraduationCap;
             const isEven = index % 2 === 0;
 
             return (
               <div key={index} className="scroll-reveal relative mb-16">
                 <div
-                  className={`flex flex-col md:flex-row gap-8 items-center ${
-                    isEven ? "md:flex-row-reverse" : ""
-                  }`}
+                  className={`flex flex-col md:flex-row gap-8 items-center ${isEven ? "md:flex-row-reverse" : ""
+                    }`}
                 >
                   <div
-                    className={`flex-1 ${
-                      isEven ? "md:text-right" : "md:text-left"
-                    } pl-20 md:pl-0`}
+                    className={`flex-1 ${isEven ? "md:text-right" : "md:text-left"
+                      } pl-20 md:pl-0`}
                   >
                     <div className="glass-card p-6 rounded-2xl hover-glow group transition-all duration-500 hover:scale-105">
                       <div className="mb-4">
@@ -126,9 +117,8 @@ const Timeline = ({ translations }: TimelineProps) => {
                         </p>
 
                         <div
-                          className={`flex flex-wrap gap-3 text-sm text-muted-foreground ${
-                            isEven ? "md:justify-end" : "md:justify-start"
-                          }`}
+                          className={`flex flex-wrap gap-3 text-sm text-muted-foreground ${isEven ? "md:justify-end" : "md:justify-start"
+                            }`}
                         >
                           <span className="flex items-center gap-1 hover:text-primary transition-colors">
                             <Calendar className="h-4 w-4" />
@@ -140,17 +130,36 @@ const Timeline = ({ translations }: TimelineProps) => {
                           </span>
                         </div>
                       </div>
-                      <ul className={`space-y-2 flex flex-col ${isEven ? "text-right items-end" : "text-left items-start"}`}>
+
+                      <ul
+                        className={`space-y-2 flex flex-col ${isEven ? "text-right items-end" : "text-left items-start"
+                          }`}
+                      >
                         {expData.achievements?.map((ach, i) => (
-                          <li key={i} className="text-sm text-muted-foreground flex flex-col gap-1">
-                            <span className={`flex items-center gap-2 ${isEven ? "flex-row-reverse" : "flex-row"}`}>
-                              <span className="text-secondary mt-1 animate-pulse-slow">▸</span>
+                          <li
+                            key={i}
+                            className="text-sm text-muted-foreground flex flex-col gap-1"
+                          >
+                            <span
+                              className={`flex items-center gap-2 ${isEven ? "flex-row-reverse" : "flex-row"
+                                }`}
+                            >
+                              <span className="text-secondary mt-1 animate-pulse-slow">
+                                ▸
+                              </span>
                               <span>{ach.text}</span>
                             </span>
                             {ach.link && (
-                              <span className={`ml-6 text-primary hover:underline ${isEven ? "ml-0 mr-6" : ""}`}>
-                                <a href={ach.link} target="_blank" rel="noopener noreferrer">
-                                  {translations.viewProject}
+                              <span
+                                className={`ml-6 text-primary hover:underline ${isEven ? "ml-0 mr-6" : ""
+                                  }`}
+                              >
+                                <a
+                                  href={ach.link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                >
+                                  {t.viewProject || "Voir projet"}
                                 </a>
                               </span>
                             )}
@@ -180,7 +189,7 @@ const Timeline = ({ translations }: TimelineProps) => {
             onClick={() => setShowAll(!showAll)}
             className="px-8 py-4 rounded-full bg-gradient-to-r from-primary to-secondary text-white font-semibold shadow-lg hover:scale-105 transition-transform"
           >
-            {showAll ? translations.showLess : translations.showAll}
+            {showAll ? t.showLess || "Réduire" : t.showAll || "Tout voir"}
           </Button>
         </div>
       </div>

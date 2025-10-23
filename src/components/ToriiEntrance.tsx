@@ -9,7 +9,8 @@ interface ToriiEntranceProps {
 
 const ToriiEntrance = ({ onComplete }: ToriiEntranceProps) => {
   const { messages } = useI18n();
-  const t = messages.toriiEntrance || { welcome: "Bienvenue", portfolio: "Mon Portfolio" };
+  if (!messages.entrance) return null;
+  const t = messages.entrance;
 
   const [isAnimating, setIsAnimating] = useState(true);
 
@@ -32,7 +33,6 @@ const ToriiEntrance = ({ onComplete }: ToriiEntranceProps) => {
 
       {/* Geometric shapes animation */}
       <div className="relative w-full h-full flex items-center justify-center">
-        {/* Expanding circles */}
         {[...Array(3)].map((_, i) => (
           <div
             key={`circle-${i}`}
@@ -40,27 +40,21 @@ const ToriiEntrance = ({ onComplete }: ToriiEntranceProps) => {
             style={{
               animationDelay: `${i * 0.2}s`,
               width: `${(i + 1) * 100}px`,
-              height: `${(i + 1) * 100}px`
+              height: `${(i + 1) * 100}px`,
             }}
           />
         ))}
 
-        {/* Top horizontal beam */}
+        {/* Torii beams and pillars */}
         <div className="absolute top-1/3 left-1/2 w-[80%] h-5 bg-gradient-accent animate-torii-gates origin-center rounded-full shadow-gold" />
-
-        {/* Second horizontal beam */}
         <div
           className="absolute top-[38%] left-1/2 w-[70%] h-4 bg-primary animate-torii-gates origin-center rounded-full shadow-purple"
           style={{ animationDelay: "0.1s" }}
         />
-
-        {/* Left pillar */}
         <div
           className="absolute left-[15%] top-[20%] w-10 h-[60%] bg-gradient-to-b from-primary to-primary/80 animate-torii-open origin-bottom shadow-purple rounded-t-lg"
           style={{ animationDelay: "0.2s" }}
         />
-
-        {/* Right pillar */}
         <div
           className="absolute right-[15%] top-[20%] w-10 h-[60%] bg-gradient-to-b from-primary to-primary/80 animate-torii-open origin-bottom shadow-purple rounded-t-lg"
           style={{ animationDelay: "0.2s" }}
@@ -82,7 +76,7 @@ const ToriiEntrance = ({ onComplete }: ToriiEntranceProps) => {
           />
         ))}
 
-        {/* Center glow effect */}
+        {/* Center glow */}
         <div className="absolute inset-0 flex items-center justify-center">
           <div className="w-40 h-40 bg-primary rounded-full blur-3xl opacity-30 animate-glow" />
           <div

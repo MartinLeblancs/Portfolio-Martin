@@ -11,13 +11,20 @@ import Contact from "@/components/Contact";
 import Education from "@/components/Education";
 import Controls from "@/components/Controls";
 import { useI18n } from "@/contexts/i18n";
+import ToriiEntrance from "@/components/ToriiEntrance";
 
 export default function HomePage() {
+  const [showEntrance, setShowEntrance] = useState(true);
   const { messages } = useI18n();
   if (!messages.footer) return null;
   const t = messages.footer;
   return (
     <>
+      {showEntrance && (
+        <ToriiEntrance
+          onComplete={() => setShowEntrance(false)}
+        />
+      )}
       <Head>
         <title>Martin LEBLANCS</title>
       </Head>

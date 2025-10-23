@@ -4,7 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import { Speaker, VolumeX, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
 import ReactCountryFlag from "react-country-flag";
-import { useI18n } from "@/contexts/i18n";
+import { useI18n, Locale } from "@/contexts/i18n";
 
 const localeCountryCode: Record<string, string> = {
   fr: "FR",
@@ -112,7 +112,7 @@ export default function Controls() {
           className={`absolute bottom-full mb-2 flex flex-col items-center overflow-hidden transition-all duration-300 ${showLangOptions ? "opacity-100 h-auto" : "opacity-0 h-0"
             }`}
         >
-          {["fr", "en"].map((loc) => (
+          {(["fr", "en"] as Locale[]).map((loc) => (
             <button
               key={loc}
               onClick={() => {

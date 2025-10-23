@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-type Locale = "fr" | "en";
+export type Locale = "fr" | "en";
 
 interface I18nContextType {
     locale: Locale;
